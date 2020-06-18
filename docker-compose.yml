@@ -215,3 +215,7 @@ volumes:
   sentry-kafka-log:
   sentry-smtp-log:
   sentry-clickhouse-log:
+networks:
+  default:
+    external:
+      name: captain-overlay-network
