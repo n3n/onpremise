@@ -8,7 +8,6 @@ x-sentry-defaults: &sentry_defaults
     args:
       - SENTRY_IMAGE
       - SENTRY_VERSION
-      - SENTRY_URL_PREFIX
   image: sentry-onpremise-local
   depends_on:
     - redis
@@ -25,6 +24,7 @@ x-sentry-defaults: &sentry_defaults
   environment:
     SENTRY_CONF: '/etc/sentry'
     SNUBA: 'http://snuba-api:1218'
+    SENTRY_URL_PREFIX: $SENTRY_URL_PREFIX
   volumes:
     - 'sentry-data:/data'
     - './sentry:/etc/sentry'
