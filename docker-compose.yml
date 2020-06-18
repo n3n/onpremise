@@ -172,8 +172,6 @@ services:
     command: '"0 0 * * * gosu sentry sentry cleanup --days $SENTRY_EVENT_RETENTION_DAYS"'
   nginx:
     << : *restart_policy
-    ports:
-      - '9000:80/tcp'
     image: 'nginx:1.16'
     volumes:
       - type: bind
